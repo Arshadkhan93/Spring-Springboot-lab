@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        
+        http://www.springframework.org/schema/util 
+        http://www.springframework.org/schema/util/spring-util.xsd
+        
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd">
+        
+        
+        
+        
+        <bean id="author1" class="lab.bean.Author">
+        <constructor-arg value="101"></constructor-arg>
+        <constructor-arg value="Martin Fowler"></constructor-arg>
+        </bean>
+       
+        
+        <bean id="book1" class="lab.bean.Book">
+        <constructor-arg value="111"></constructor-arg>
+        <constructor-arg value="Spring Framework Essentials"></constructor-arg>
+        </bean>
+        
+        <bean id="book2" class="lab.bean.Book">
+        <constructor-arg value="222"></constructor-arg>
+        <constructor-arg value="Clean Code"></constructor-arg>
+        </bean>
+        
+        <bean id="library" class="lab.bean.Library">
+        <constructor-arg name="bookname" value="City Central Library"></constructor-arg>
+        <constructor-arg >
+        <list >
+        <ref bean="book1"/>
+        <ref bean="book2"/>       
+        </list>
+        </constructor-arg>
+        </bean>
+        
+        <bean id="librarian" class="lab.bean.Librarian">
+        <property name="employeeName" value="Mr. John"></property>
+        </bean>
+ 
+
+
+    <!-- Component Scan -->
+    <context:component-scan base-package="lab.bean"/>
+
+</beans>
